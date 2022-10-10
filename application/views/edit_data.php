@@ -3,12 +3,12 @@
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <h1>
-      Tambah Data Pelajar
+      Edit Data Pelajar
     </h1>
     <ol class="breadcrumb">
       <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
       <li><a href="#">Forms</a></li>
-      <li class="active">Tambah Data Pelajar</li>
+      <li class="active">Edit Data Pelajar</li>
     </ol>
   </section>
 
@@ -24,27 +24,27 @@
           </div>
           <!-- /.box-header -->
           <!-- form start -->
-          <form role="form" action="<?php echo base_url()?>Niomic/add" method="POST">
+          <form role="form" action="<?php echo base_url()?>Niomic/update" method="POST">
             <div class="box-body">
               <div class="form-group">
                 <label>NIS</label>
-                <input type="number" required class="form-control" name="nis" placeholder="Harap Masukkan NIS">
+                <input type="number" required class="form-control" name="nis" placeholder="Harap Masukkan NIS" value="<?php echo $pelajar->nis; ?>" readonly>
               </div>
               <div class="form-group">
                 <label>Nama Siswa</label>
-                <input type="text" class="form-control" name="nama" placeholder="Harap Masukkan Nama">
+                <input type="text" class="form-control" name="nama" placeholder="Harap Masukkan Nama" value="<?php echo $pelajar->nama; ?>">
               </div>
               <div class="form-group">
                 <label>Kelas</label>
-                <input type="text" class="form-control" name="kelas" placeholder="Harap Masukkan Kelas">
+                <input type="text" class="form-control" name="kelas" placeholder="Harap Masukkan Kelas" value="<?php echo $pelajar->kelas; ?>">
               </div>
               <div class="form-group">
                 <label>Jurusan</label>
-                <input type="text" class="form-control" name="jurusan" placeholder="Harap Masukkan Jurusan">
+                <input type="text" class="form-control" name="jurusan" placeholder="Harap Masukkan Jurusan" value="<?php echo $pelajar->jurusan; ?>">
               </div>
               <div class="form-group">
                 <label>Email</label>
-                <input type="email" class="form-control" name="email" placeholder="Harap Masukkan Email">
+                <input type="email" class="form-control" name="email" placeholder="Harap Masukkan Email" value="<?php echo $pelajar->email; ?>">
               </div>
             </div>
             <div class="box-footer">

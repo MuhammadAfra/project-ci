@@ -44,8 +44,9 @@
 
                       <div class="box-body">
                           <div class="pull-right">
+                              <a href="<?php echo base_url() ?>Laporan" class="btn btn-success"><i class="mdi mid-plus-circle mr-2 fa fa-print"></i> &nbsp;Cetak Laporan</a>
                               <a href="<?php echo base_url() ?>Niomic/tambah_data" class="btn btn-primary"><i class="mdi mid-plus-circle mr-2 fa fa-plus"></i> &nbsp;Tambah Pelajar</a>
-                          </div>
+                            </div>
                       </div>
                       <!-- /.box-header -->
                       <div class="box-body">

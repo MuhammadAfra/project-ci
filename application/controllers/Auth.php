@@ -20,7 +20,10 @@ class Auth extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('login');
+		if($this->session->userdata('login') == TRUE)
+			redirect('Niomic');
+		else
+			$this->load->view('login');
 	}
 
     public function cobaLogin()

@@ -12,6 +12,7 @@ class Niomic extends CI_Controller
 
     public function index()
     {
+        if($this->session->userdata('login') == TRUE){
         $data['judul'] = 'Selamat Datang di Niomic';
         $data['isi'] = 'Isi Pesan bla bla bla';
         $data['pelajar'] = $this->Model->get_pelajar();
@@ -19,6 +20,9 @@ class Niomic extends CI_Controller
         $this->load->view('top');
         $this->load->view('tables', $data);
         $this->load->view('bottom');
+        }else{
+            redirect('Auth');
+        }
     }
 
     public  function edit_data($nis="")

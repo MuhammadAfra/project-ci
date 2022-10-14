@@ -87,4 +87,37 @@ class Niomic extends CI_Controller
             echo "<script>window.location.href='".base_url()."Niomic"."';</script>";
         }
     }
+
+    public  function ubah_profile()
+    {
+        $this->load->view('top');
+        $this->load->view('upload_photo');
+        $this->load->view('bottom');
+    }
+
+    public function upload_berkas() {
+        $config['upload_path'] = './uploads';
+        $config['allowed_types'] = 'gif|jpg|png';
+        $config['max_size'] = 1000000;
+        $config['max_height'] = 4800;
+        $config['max_widht'] = 4800;
+        $this->load->library('upload', $config);
+
+        if(!$this->upload->do_upload('berkas')){
+            sleep(4);
+            $this->session->set_flashdata('error', 'Gagal Upload Photo');
+            redirect('Niomic');
+        }else{
+            sleep(4);
+            $string = $this->upload->data();
+            $data = array(
+                'photo'=>$string['file_name']
+            );
+            $this->db->where('id_user', $this->session->userdata('id_user'));
+            if($this->db->update('tbl_user', $data)){
+                $this->session->set_flashdata('success', 'Anda berhasil mengubah gambar / photo');
+                redirect('Niomic');
+            }
+        }
+    }
 }

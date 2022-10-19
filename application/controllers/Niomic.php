@@ -16,9 +16,11 @@ class Niomic extends CI_Controller
         $data['judul'] = 'Selamat Datang di Niomic';
         $data['isi'] = 'Isi Pesan bla bla bla';
         $data['pelajar'] = $this->Model->get_pelajar();
+        $data['gambar'] = $this->db->get_where('tbl_user', array('id_user'=> $this->session->userdata('id_user')),1)->row()->photo;
 
-        $this->load->view('top');
-        $this->load->view('tables', $data);
+        $this->load->view('top', $data);
+        $this->load->view('tables');
+        $this->load->view('Modal');
         $this->load->view('bottom');
         }else{
             redirect('Auth');
@@ -28,15 +30,16 @@ class Niomic extends CI_Controller
     public  function edit_data($nis="")
     {
         $data['pelajar'] = $this->db->get_where('tbl_pelajar', array('nis'=>$nis),1)->row();
-
-        $this->load->view('top');
-        $this->load->view('edit_data', $data);
+        $data['gambar'] = $this->db->get_where('tbl_user', array('id_user'=> $this->session->userdata('id_user')),1)->row()->photo;
+        $this->load->view('top', $data);
+        $this->load->view('edit_data');
         $this->load->view('bottom');
     }
 
     public  function tambah_data()
     {
-        $this->load->view('top');
+        $data['gambar'] = $this->db->get_where('tbl_user', array('id_user'=> $this->session->userdata('id_user')),1)->row()->photo;
+        $this->load->view('top', $data);
         $this->load->view('tambah_data');
         $this->load->view('bottom');
     }
@@ -90,7 +93,9 @@ class Niomic extends CI_Controller
 
     public  function ubah_profile()
     {
-        $this->load->view('top');
+        $data['gambar'] = $this->db->get_where('tbl_user', array('id_user'=> $this->session->userdata('id_user')),1)->row()->photo;
+
+        $this->load->view('top', $data);
         $this->load->view('upload_photo');
         $this->load->view('bottom');
     }

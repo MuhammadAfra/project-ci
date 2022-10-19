@@ -46,6 +46,7 @@
                           <div class="pull-right">
                               <a href="<?php echo base_url() ?>Laporan" class="btn btn-success"><i class="mdi mid-plus-circle mr-2 fa fa-print"></i> &nbsp;Cetak Laporan</a>
                               <a href="<?php echo base_url() ?>Niomic/tambah_data" class="btn btn-primary"><i class="mdi mid-plus-circle mr-2 fa fa-plus"></i> &nbsp;Tambah Pelajar</a>
+                              <a data-toggle="modal" data-target="#TambahModal" class="btn btn-primary"><i class="mdi mid-plus-circle mr-2 fa fa-plus"></i> &nbsp;Tambah Pelajar Dengan Modal</a>
                             </div>
                       </div>
                       <!-- /.box-header -->
@@ -72,7 +73,9 @@
                                           <td><?php echo $data['jurusan']; ?></td>
                                           <td><?php echo $data['email']; ?></td>
                                           <td><span data-toggle="tooltip" data-original-title="Edit Data" style="font-size:10;"><a class="btn btn-warning" href="<?php echo base_url()?>Niomic/edit_data/<?php echo $data['nis'];?>"><i class="fa fa-edit"></i></a></span>
-                                            <span data-toggle="tooltip" data-original-title="Hapus Data" style="font-size:10;"><a class="btn btn-danger" href="<?php echo base_url()?>Niomic/delete/<?php echo $data['nis'];?>"><i class="fa fa-trash"></i></a></span></td>
+                                          <span data-toggle="tooltip" data-original-title="Edit Data Dengan Modal" style="font-size:10;"><a class="btn btn-info ubah_modal" data-toggle="modal" data-target="#UbahModal" data-nis="<?php echo $data['nis'];?>" data-nama="<?php echo $data['nama'];?>" data-kelas="<?php echo $data['kelas'];?>" data-jurusan="<?php echo $data['jurusan'];?>" data-email="<?php echo $data['email'];?>"><i class="fa fa-edit"></i></a></span>  
+                                          <span data-toggle="tooltip" data-original-title="Hapus Data" style="font-size:10;"><a class="btn btn-danger" href="<?php echo base_url()?>Niomic/delete/<?php echo $data['nis'];?>"><i class="fa fa-trash"></i></a></span>
+                                          </td>
                                       </tr>
                                   <?php } ?>
                                   </tfoot>

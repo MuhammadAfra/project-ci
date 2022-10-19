@@ -28,6 +28,15 @@
       'autoWidth'   : false
     })
   })
+
+  $(".ubah_modal").click(function(){
+    $(".nis").val($(this).attr('data-nis'));
+    $(".nama").val($(this).attr('data-nama'));
+    $(".kelas").val($(this).attr('data-kelas'));
+    $(".jurusan").val($(this).attr('data-jurusan'));
+    $(".email").val($(this).attr('data-email'));
+  });
+  
 </script>
 </body>
 </html>
